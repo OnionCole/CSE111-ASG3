@@ -124,7 +124,8 @@ int main (int argc, char** argv) {
          } else {
             ifstream ifs = ifstream(fn);
             if (ifs.fail()) {
-               cerr << "Given filename does not exist" << endl;
+               cerr << sys_info::execname() << ": " << fn <<
+                     ": No such file or directory" << endl;
                sys_info::exit_status(1);
             } else {
                run(fn, ifs);
