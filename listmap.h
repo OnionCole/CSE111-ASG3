@@ -39,6 +39,7 @@ class listmap {
       listmap(){};
       listmap (const listmap&);
       listmap& operator= (const listmap&);
+      listmap(listmap&&);
       ~listmap();
       iterator insert (const value_type&);
       iterator find (const key_type&);
@@ -72,6 +73,8 @@ class listmap<key_t,mapped_t,less_t>::iterator {
          return this->where != that.where;
       }
       operator bool() const { return where != nullptr; }
+
+      void erase();  // not used, but in ASG specs
 };
 
 #include "listmap.tcc"
