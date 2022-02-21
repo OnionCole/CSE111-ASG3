@@ -62,8 +62,8 @@ void run(string fn, istream& in_stream) {
       else if (regex_search(line, result, key_value_regex)) { //
             // '=' char present; meaning we might have a key and we
             // might have a value
-         string k = result[0].str();
-         string v = result[1].str();
+         string k = result[1].str();
+         string v = result[2].str();
          
          if (k.empty()) {  // no key (read from listmap)
             if (v.empty()) {  // no key, no value
@@ -95,7 +95,7 @@ void run(string fn, istream& in_stream) {
          }
       } else if (regex_search(line, result, trimmed_regex)) { //
             // no '=' char, meaning we have a string of a possible key
-         string k = result[0].str();
+         string k = result[1].str();
 
          auto key_loc_iterator = global_map.find(k);
          bool key_exists = key_loc_iterator != global_map.end();
