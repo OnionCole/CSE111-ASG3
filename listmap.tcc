@@ -114,7 +114,7 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    position.where->next->prev = position.where->prev;
    
    iterator er_target = position;
-   position++;
+   ++position;
    delete er_target.where;
    
    return position;
